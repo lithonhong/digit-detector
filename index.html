@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+
+    <body>
+        <div id="canvas-ctn">
+            <canvas id="cv" height="224" width="224"></canvas>
+        </div>
+        
+        <div id="ui">
+            <button id="detect-btn">Detect digit!</button>
+            <button id="clear-btn">Clear canvas!</button>
+            <p>This digit is: <span id="detected-digit"></span></p>
+        </div>
+
+
+        <div id="canvas-ctn">
+            <p>Image fed to neural network</p>
+            <canvas id="cv2" height="28" width="28"></canvas>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
