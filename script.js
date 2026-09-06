@@ -10,7 +10,7 @@ const resSpan = document.getElementById('detected-digit');
 
 // miscellaneous functions
 
-function getMousePos(event) {
+function getPointerPos(event) {
     const rect = canvas.getBoundingClientRect();
 
     const canvasActualX = canvas.clientWidth;
@@ -55,8 +55,8 @@ loadNeuralNetwork().then(
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
-let mouseX = 0;
-let mouseY = 0;
+let pointerX = 0;
+let pointerY = 0;
 
 ctx.strokeStyle = '#ff0000';
 ctx.lineWidth = 16;
@@ -65,7 +65,7 @@ ctx.lineJoin = 'round';
 
 function startDrawing(e) {
     isDrawing = true;
-    [lastX, lastY] = getMousePos(e);
+    [lastX, lastY] = getPointerPos(e);
 }
 
 function draw(e) {
@@ -75,11 +75,11 @@ function draw(e) {
 
     ctx.beginPath();
     ctx.moveTo(lastX, lastY);
-    [mouseX, mouseY] = getMousePos(e);
-    ctx.lineTo(mouseX, mouseY);
+    [pointerX, pointerY] = getPointerPos(e);
+    ctx.lineTo(pointerX, pointerY);
     ctx.stroke();
 
-    [lastX, lastY] = getMousePos(e);
+    [lastX, lastY] = getPointerPos(e);
 }
 
 function stopDrawing(e) {
@@ -93,10 +93,10 @@ function clearCanvas(e) {
     ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
 }
 
-canvas.addEventListener('mousedown', startDrawing);
-canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mouseup', stopDrawing);
-canvas.addEventListener('mouseout', stopDrawing); 
+canvas.addEventListener('pointerdown', startDrawing);
+canvas.addEventListener('pointermove', draw);
+canvas.addEventListener('pointerup', stopDrawing);
+canvas.addEventListener('pointerout', stopDrawing);
 
 clearBtn.addEventListener("click", clearCanvas);
 

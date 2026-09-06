@@ -2,4 +2,5 @@ canvas {
     border: 2px solid black;
     width: 10%;
     height: auto;
+    touch-action: none;
 }
